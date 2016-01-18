@@ -13,6 +13,9 @@
         <module>niubi-job-simple-spring</module>
         <module>niubi-job-test</module>
         <module>niubi-job-standby</module>
+        <module>niubi-job-master-slave</module>
+        <module>niubi-job-example-common</module>
+        <module>niubi-job-example-spring</module>
     </modules>
 
     <properties>
