@@ -14,7 +14,7 @@
 
     <context:component-scan base-package="com.zuoxiaolong.niubi.job.example.spring"/>
 
-    <job:job-driven packagesToScan="com.zuoxiaolong.niubi.job.examples.simple.spring.jobs"/>
+    <job:job-driven packagesToScan="com.zuoxiaolong.niubi.job.example.spring"/>
 
 </beans>
 
