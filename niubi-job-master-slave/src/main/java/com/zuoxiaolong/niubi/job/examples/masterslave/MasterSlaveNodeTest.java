@@ -31,10 +31,6 @@ import java.io.InputStreamReader;
 public class MasterSlaveNodeTest {
 
     public static void main(String[] args) throws IOException {
-        //todo
-        //1.节点挂掉任务没有再次分配
-        //2.任务绑定在节点上，当新增机器时，没有做balance。
-        //3......
         Node node = new MasterSlaveNode("localhost:2181,localhost:3181,localhost:4181", "http://localhost:8080/job/masterSlave", StringHelper.emptyArray());
         node.join();
         new BufferedReader(new InputStreamReader(System.in)).readLine();
