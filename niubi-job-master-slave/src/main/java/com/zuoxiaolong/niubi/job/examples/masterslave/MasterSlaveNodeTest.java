@@ -20,9 +20,7 @@ import com.zuoxiaolong.niubi.job.cluster.node.MasterSlaveNode;
 import com.zuoxiaolong.niubi.job.core.helper.StringHelper;
 import com.zuoxiaolong.niubi.job.scheduler.node.Node;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 /**
  * @author Xiaolong Zuo
@@ -30,10 +28,9 @@ import java.io.InputStreamReader;
  */
 public class MasterSlaveNodeTest {
 
-    public static void main(String[] args) throws IOException {
+    public void start() throws IOException {
         Node node = new MasterSlaveNode("localhost:2181,localhost:3181,localhost:4181", "http://localhost:8080/job/masterSlave", StringHelper.emptyArray());
         node.join();
-        new BufferedReader(new InputStreamReader(System.in)).readLine();
     }
 
 }
