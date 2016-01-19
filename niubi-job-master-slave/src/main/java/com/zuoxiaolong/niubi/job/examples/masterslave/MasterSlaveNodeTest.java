@@ -31,7 +31,7 @@ import java.io.InputStreamReader;
 public class MasterSlaveNodeTest {
 
     public static void main(String[] args) throws IOException {
-        Node node = new MasterSlaveNode("localhost:2181,localhost:3181,localhost:4181", "http://localhost:8080/job", StringHelper.emptyArray());
+        Node node = new MasterSlaveNode("localhost:2181,localhost:3181,localhost:4181", "http://localhost:8080/job/masterSlave", StringHelper.emptyArray());
         node.join();
         new BufferedReader(new InputStreamReader(System.in)).readLine();
     }
