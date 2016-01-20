@@ -16,12 +16,13 @@
 
 package com.zuoxiaolong.niubi.job.examples.masterslave;
 
-import com.zuoxiaolong.niubi.job.core.helper.ClassHelper;
+import com.zuoxiaolong.niubi.job.core.helper.StringHelper;
 import com.zuoxiaolong.niubi.job.scanner.JobScanClassLoaderFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -32,17 +33,29 @@ import java.lang.reflect.Method;
 public class Laun {
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException, IOException {
-         ClassLoader classLoader =       JobScanClassLoaderFactory.createClassLoader(Thread.currentThread().getContextClassLoader()
-                ,
-                "/Users/zuoxiaolong/project/intellij/niubi-job-examples/niubi-job-master-slave/target/classes/niubi-job-example-spring-1.0-SNAPSHOT.jar");
+        ClassLoader classLoader =      JobScanClassLoaderFactory.createClassLoader(Laun.class.getClassLoader(),
+                "D:/project/niubi-job-examples/niubi-job-master-slave/target/classes/niubi-job-example-spring-1.0-SNAPSHOT.jar",
+                "D:/project/niubi-job-examples/niubi-job-master-slave/target/classes/niubi-job-cluster-1.0-SNAPSHOT.jar",
+                "D:/project/niubi-job-examples/niubi-job-master-slave/target/classes/niubi-job-spring-1.0-SNAPSHOT.jar");
+//        try {
+//            System.out.println(classLoader.loadClass("com.zuoxiaolong.niubi.job.spring.container.DefaultSpringContainer"));
+//            Class<Container> containerClass = (Class<Container>) classLoader.loadClass("com.zuoxiaolong.niubi.job.spring.container.DefaultSpringContainer");
+//            Constructor<Container> containerConstructor = containerClass.getConstructor(Configuration.class, String.class, String[].class);
+//            ClassHelper.overrideThreadContextClassLoader(classLoader);
+//            Container container = containerConstructor.newInstance(new Configuration(classLoader), "", new String[]{});
+//            System.out.println(container);
+//        } catch (Exception e) {
+//            throw new NiubiException(e);
+//        }
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 Class<?> c = null;
                 try {
-                    c = ClassHelper.getDefaultClassLoader().loadClass("com.zuoxiaolong.niubi.job.examples.masterslave.MasterSlaveNodeTest");
-                    Object ins = c.newInstance();
-                    Method method = c.getMethod("start", new Class[]{});
+                    c = classLoader.loadClass("com.zuoxiaolong.niubi.job.cluster.node.MasterSlaveNode");
+                    Constructor constructor = c.getConstructor(String.class, String.class, String[].class);
+                    Object ins = constructor.newInstance("localhost:2181,localhost:3181,localhost:4181", "http://localhost:8080/job/masterSlave", StringHelper.emptyArray());
+                    Method method = c.getMethod("join", new Class[]{});
                     method.invoke(ins, new Object[]{});
                 } catch (Exception e) {
                     throw new RuntimeException(e);
