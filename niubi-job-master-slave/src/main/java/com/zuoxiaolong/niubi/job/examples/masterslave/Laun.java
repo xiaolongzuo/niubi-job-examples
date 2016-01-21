@@ -17,7 +17,7 @@
 package com.zuoxiaolong.niubi.job.examples.masterslave;
 
 import com.zuoxiaolong.niubi.job.core.helper.StringHelper;
-import com.zuoxiaolong.niubi.job.scanner.JobScanClassLoaderFactory;
+import com.zuoxiaolong.niubi.job.scanner.ApplicationClassLoaderFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,7 +33,7 @@ import java.lang.reflect.Method;
 public class Laun {
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException, IOException {
-        ClassLoader classLoader =      JobScanClassLoaderFactory.createClassLoader(Laun.class.getClassLoader(),
+        ClassLoader classLoader =      ApplicationClassLoaderFactory.createNormalApplicationClassLoader(Laun.class.getClassLoader(),
                 "D:/project/niubi-job-examples/niubi-job-master-slave/target/classes/niubi-job-example-spring-1.0-SNAPSHOT.jar",
                 "D:/project/niubi-job-examples/niubi-job-master-slave/target/classes/niubi-job-cluster-1.0-SNAPSHOT.jar",
                 "D:/project/niubi-job-examples/niubi-job-master-slave/target/classes/niubi-job-spring-1.0-SNAPSHOT.jar");
