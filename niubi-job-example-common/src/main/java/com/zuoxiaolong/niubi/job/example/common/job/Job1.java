@@ -25,7 +25,7 @@ import com.zuoxiaolong.niubi.job.scanner.annotation.Schedule;
  */
 public class Job1 {
 
-    @Schedule
+    @Schedule(cron = "0/15 * * * * ?")
     public void job1Test() {
         LoggerHelper.info("[job1] is running.......");
     }

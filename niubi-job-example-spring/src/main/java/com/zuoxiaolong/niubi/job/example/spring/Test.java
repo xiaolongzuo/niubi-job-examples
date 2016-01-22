@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2016 the original author or authors.
+ * Copyright 2002-2015 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,21 @@
  * limitations under the License.
  */
 
-package com.zuoxiaolong.niubi.job.examples.simple.spring;
+
+package com.zuoxiaolong.niubi.job.example.spring;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
+ * use to test jobs.
+ *
  * @author Xiaolong Zuo
- * @since 16/1/16 15:35
+ * @since 1/22/2016 14:19
  */
-public class SimpleSpringTest {
+public class Test {
 
     public static void main(String[] args) {
-        new ClassPathXmlApplicationContext("applicationContext-test.xml");
+        new ClassPathXmlApplicationContext("applicationContext.xml");
     }
 
 }

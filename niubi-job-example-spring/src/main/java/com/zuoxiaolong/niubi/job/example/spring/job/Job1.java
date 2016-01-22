@@ -31,7 +31,7 @@ public class Job1 {
     @Autowired
     private OneService oneService;
 
-    @Schedule
+    @Schedule(cron = "0/15 * * * * ?")
     public void test() {
         oneService.someServiceMethod1();
     }

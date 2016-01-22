@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2016 the original author or authors.
+ * Copyright 2002-2015 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,26 +14,21 @@
  * limitations under the License.
  */
 
-package com.zuoxiaolong.niubi.job.examples.simple.spring.jobs;
 
-import com.zuoxiaolong.niubi.job.examples.simple.spring.beans.OneBean;
-import com.zuoxiaolong.niubi.job.scanner.annotation.Schedule;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+package com.zuoxiaolong.niubi.job.example.common;
+
+import com.zuoxiaolong.niubi.job.scheduler.node.Node;
+import com.zuoxiaolong.niubi.job.scheduler.node.SimpleLocalJobNode;
 
 /**
  * @author Xiaolong Zuo
- * @since 16/1/16 15:30
+ * @since 1/22/2016 14:13
  */
-@Component
-public class OneJob {
+public class Test {
 
-    @Autowired
-    private OneBean oneBean;
-
-    @Schedule(cron = "0/10 * * * * ?")
-    public void test() {
-        oneBean.beanMethod();
+    public static void main(String[] args) {
+        Node node = new SimpleLocalJobNode("com.zuoxiaolong");
+        node.join();
     }
 
 }
