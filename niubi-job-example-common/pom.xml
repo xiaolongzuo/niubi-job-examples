@@ -11,16 +11,6 @@
 
     <artifactId>niubi-job-example-common</artifactId>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.zuoxiaolong</groupId>
-                <artifactId>niubi-job-scheduler</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>com.zuoxiaolong</groupId>
