@@ -5,14 +5,13 @@
     <parent>
         <artifactId>niubi-job-examples</artifactId>
         <groupId>com.zuoxiaolong</groupId>
-        <version>0.9.4-SNAPSHOT</version>
+        <version>0.9.4.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>niubi-job-example-spring</artifactId>
 
     <properties>
-        <niubi.job.version>0.9.4-SNAPSHOT</niubi.job.version>
         <spring.version>4.2.4.RELEASE</spring.version>
     </properties>
 
