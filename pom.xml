@@ -7,7 +7,7 @@
     <groupId>com.zuoxiaolong</groupId>
     <artifactId>niubi-job-examples</artifactId>
     <packaging>pom</packaging>
-    <version>0.9.4.RELEASE</version>
+    <version>0.9.5-SNAPSHOT</version>
     <modules>
         <module>niubi-job-test</module>
         <module>niubi-job-example-common</module>
